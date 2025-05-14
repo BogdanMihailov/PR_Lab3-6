@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+# Не копируем исходный код, так как будем монтировать его через volumes
+# COPY . .
+
+EXPOSE 5000
+
+CMD ["npm", "run", "dev"] 
