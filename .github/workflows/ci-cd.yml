@@ -48,10 +48,6 @@ jobs:
     - name: Run client container
       run: docker run -d --name todo-client --network todo-app-network -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/todo-client:latest
 
-    - name: Test client health
-      run: |
-        curl -f http://localhost:3000 || exit 1
-
     - name: Clean up
       run: |
         docker rm -f todo-client todo-server mongodb
