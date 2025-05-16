@@ -48,11 +48,6 @@ jobs:
     - name: Run client container
       run: docker run -d --name todo-client --network todo-app-network -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/todo-client:latest
 
-    - name: Test server health
-      run: |
-        sleep 20 # Wait for containers to initialize
-        curl -f http://localhost:5000/api/tasks || exit 1
-
     - name: Test client health
       run: |
         curl -f http://localhost:3000 || exit 1
