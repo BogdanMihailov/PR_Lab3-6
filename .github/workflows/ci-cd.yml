@@ -50,7 +50,7 @@ jobs:
 
     - name: Test server health
       run: |
-        sleep 10 # Wait for containers to initialize
+        sleep 20 # Wait for containers to initialize
         curl -f http://localhost:5000/api/tasks || exit 1
 
     - name: Test client health
